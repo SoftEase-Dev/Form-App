@@ -1,6 +1,6 @@
 {
-    "name": "formapp",
-    "short_name": "formapp",
+    "name": "form_app",
+    "short_name": "form_app",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",

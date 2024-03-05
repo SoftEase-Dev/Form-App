@@ -1,4 +1,4 @@
-package com.example.formapp
+package com.example.form_app
 
 import io.flutter.embedding.android.FlutterActivity
 
