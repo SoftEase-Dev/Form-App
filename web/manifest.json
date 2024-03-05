@@ -1,6 +1,6 @@
 {
-    "name": "voteapp",
-    "short_name": "voteapp",
+    "name": "formapp",
+    "short_name": "formapp",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",
