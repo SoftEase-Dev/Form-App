@@ -9,6 +9,11 @@ class HomePage extends StatelessWidget {
       appBar: AppBar(
         title: Text("Form App"),
       ),
+      body: Container(
+        child: Center(
+          child: Text('Test app'),
+        ),
+      ),
     );
   }
 }
