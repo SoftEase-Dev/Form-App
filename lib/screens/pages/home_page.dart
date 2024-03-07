@@ -2,17 +2,23 @@ import 'package:flutter/material.dart';
 import 'package:form_app/screens/widgets/option_item.dart';
 import 'package:form_app/themes/theme.dart';
 
-class HomePage extends StatelessWidget {
+class HomePage extends StatefulWidget {
   const HomePage({super.key});
 
+  @override
+  State<HomePage> createState() => _HomePageState();
+}
+
+class _HomePageState extends State<HomePage> {
+  String conditionState = '';
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Form App"),
+        title: const Text("Form App"),
       ),
       body: Container(
-        margin: EdgeInsets.symmetric(horizontal: 24),
+        margin: const EdgeInsets.symmetric(horizontal: 24),
         child: Center(
           child: Column(
             children: [
@@ -39,15 +45,33 @@ class HomePage extends StatelessWidget {
                       ),
                 ),
               ),
-              OptionItem(
-                option: 'assets/svgs/a_option.svg',
-                question: "Bagaimana caranya?",
-                image: 'assets/imgs/option_img.png',
+              GestureDetector(
+                onTap: () {
+                  setState(() {
+                    conditionState = 'a';
+                  });
+                },
+                child: OptionItem(
+                  idOption: 'a',
+                  conditionState: conditionState,
+                  option: 'assets/svgs/a_option.svg',
+                  question: "Bagaimana caranya?",
+                  image: 'assets/imgs/option_img.png',
+                ),
               ),
-              OptionItem(
-                option: 'assets/svgs/b_option.svg',
-                question: "Bagaimana caranya?",
-                image: 'assets/imgs/option_img.png',
+              GestureDetector(
+                onTap: () {
+                  setState(() {
+                    conditionState = 'b';
+                  });
+                },
+                child: OptionItem(
+                  idOption: 'b',
+                  conditionState: conditionState,
+                  option: 'assets/svgs/b_option.svg',
+                  question: "Bagaimana caranya?",
+                  image: 'assets/imgs/option_img.png',
+                ),
               ),
             ],
           ),
