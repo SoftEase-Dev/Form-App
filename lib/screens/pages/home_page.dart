@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:form_app/screens/widgets/option_item.dart';
 import 'package:form_app/themes/theme.dart';
 
 class HomePage extends StatelessWidget {
@@ -11,6 +12,7 @@ class HomePage extends StatelessWidget {
         title: Text("Form App"),
       ),
       body: Container(
+        margin: EdgeInsets.symmetric(horizontal: 24),
         child: Center(
           child: Column(
             children: [
@@ -36,6 +38,16 @@ class HomePage extends StatelessWidget {
                         color: neutral_600,
                       ),
                 ),
+              ),
+              OptionItem(
+                option: 'assets/svgs/a_option.svg',
+                question: "Bagaimana caranya?",
+                image: 'assets/imgs/option_img.png',
+              ),
+              OptionItem(
+                option: 'assets/svgs/b_option.svg',
+                question: "Bagaimana caranya?",
+                image: 'assets/imgs/option_img.png',
               ),
             ],
           ),
