@@ -50,7 +50,15 @@ class _OptionItemState extends State<OptionItem> {
       height: 96,
       width: double.infinity,
       decoration: BoxDecoration(
-        color: isSelected ? primary_500 : neutral_50,
+        color: isSelected ? null : neutral_50,
+        gradient: isSelected
+            ? const LinearGradient(
+                begin: Alignment.bottomLeft,
+                end: Alignment.topRight,
+                stops: [0, .6],
+                colors: [Color(0xFFEF8633), Color(0xFFEEC049)],
+              )
+            : null,
         borderRadius: BorderRadius.circular(12),
         border: Border.all(
           color: isSelected ? Colors.transparent : neutral_200,
@@ -69,7 +77,10 @@ class _OptionItemState extends State<OptionItem> {
           ),
           Expanded(
             child: Text(widget.question,
-                style: Theme.of(context).textTheme.labelMedium),
+                style: Theme.of(context)
+                    .textTheme
+                    .labelMedium
+                    ?.copyWith(color: isSelected ? white : black)),
           ),
           const SizedBox(
             width: 12,

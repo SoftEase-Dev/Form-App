@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:form_app/screens/widgets/custom_text_field.dart';
 import 'package:form_app/screens/widgets/option_item.dart';
 import 'package:form_app/themes/theme.dart';
 
@@ -29,6 +30,9 @@ class _HomePageState extends State<HomePage> {
                       color: primary_600,
                     ),
               ),
+              SizedBox(
+                height: 24,
+              ),
               ElevatedButton(
                 onPressed: () {},
                 style: ButtonStyle(
@@ -45,6 +49,9 @@ class _HomePageState extends State<HomePage> {
                       ),
                 ),
               ),
+              SizedBox(
+                height: 24,
+              ),
               GestureDetector(
                 onTap: () {
                   setState(() {
@@ -59,6 +66,9 @@ class _HomePageState extends State<HomePage> {
                   image: 'assets/imgs/option_img.png',
                 ),
               ),
+              SizedBox(
+                height: 8,
+              ),
               GestureDetector(
                 onTap: () {
                   setState(() {
@@ -72,6 +82,17 @@ class _HomePageState extends State<HomePage> {
                   question: "Bagaimana caranya?",
                   image: 'assets/imgs/option_img.png',
                 ),
+              ),
+              SizedBox(
+                height: 24,
+              ),
+              CustomTextField(
+                label: 'Nama Lengkap',
+                hint: 'Masukkan nama lengkap anda',
+              ),
+              CustomTextField(
+                label: 'Usia (Tahun)',
+                hint: 'Masukkan usia anda dalam tahun',
               ),
             ],
           ),
