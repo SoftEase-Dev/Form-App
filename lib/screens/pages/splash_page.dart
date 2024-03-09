@@ -1,11 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:form_app/screens/widgets/custom_text_field.dart';
-import 'package:form_app/screens/widgets/option_item.dart';
-import 'package:form_app/screens/widgets/step_bar.dart';
 import 'package:form_app/themes/theme.dart';
 
-class HomePage extends StatelessWidget {
-  const HomePage({super.key});
+class SplashPage extends StatelessWidget {
+  const SplashPage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -51,9 +48,7 @@ class HomePage extends StatelessWidget {
                         ),
                         backgroundColor:
                             MaterialStateProperty.all(primary_500)),
-                    onPressed: () {
-                      Navigator.pushNamed(context, '/test');
-                    },
+                    onPressed: () {},
                     child: Text(
                       'Mulai',
                       style: Theme.of(context).textTheme.bodyMedium?.copyWith(
