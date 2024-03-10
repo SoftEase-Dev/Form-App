@@ -29,28 +29,28 @@ class FormPage extends StatelessWidget {
       }
 
       Widget nameInput() {
-        return CustomTextField(
+        return const CustomTextField(
           label: 'Nama Lengkap',
           hint: 'Masukan nama lengkap Anda',
         );
       }
 
       Widget ageInput() {
-        return CustomTextField(
+        return const CustomTextField(
           label: 'Usia (Tahun)',
           hint: 'Masukan usia Anda dalam tahun',
         );
       }
 
       Widget weightInput() {
-        return CustomTextField(
+        return const CustomTextField(
           label: 'Berat Badan (Kg)',
           hint: 'Masukan berat badan Anda dalam kg',
         );
       }
 
       Widget heightInput() {
-        return CustomTextField(
+        return const CustomTextField(
           label: 'Tinggi Badan (Cm)',
           hint: 'Masukan tinggi badan Anda dalam cm',
         );
@@ -59,9 +59,8 @@ class FormPage extends StatelessWidget {
       Widget submitButton() {
         return ElevatedButton(
           style: ButtonStyle(
-              minimumSize: MaterialStateProperty.all(
-                Size(double.infinity, 48),
-              ),
+              minimumSize:
+                  MaterialStateProperty.all(const Size(double.infinity, 48)),
               backgroundColor: MaterialStateProperty.all(primary_500)),
           onPressed: () {},
           child: Text(
@@ -74,45 +73,56 @@ class FormPage extends StatelessWidget {
         );
       }
 
-      return Container(
-        margin: const EdgeInsets.symmetric(horizontal: 24),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Align(
-              alignment: Alignment.topLeft,
-              child: GestureDetector(
-                onTap: () {},
-                child: SvgPicture.asset(
-                  'assets/svgs/back_button.svg',
-                ),
-              ),
-            ),
-            const SizedBox(
-              height: 28,
-            ),
-            Container(
-              padding: const EdgeInsets.symmetric(
-                horizontal: 16,
-                vertical: 24,
-              ),
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(16),
-                color: white,
-              ),
+      return SingleChildScrollView(
+        child: SizedBox(
+          height: MediaQuery.of(context).size.height,
+          child: Center(
+            child: Container(
+              margin: const EdgeInsets.symmetric(horizontal: 24),
               child: Column(
-                crossAxisAlignment: CrossAxisAlignment.center,
+                mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  title(),
-                  nameInput(),
-                  ageInput(),
-                  weightInput(),
-                  heightInput(),
-                  submitButton(),
+                  Align(
+                    alignment: Alignment.topLeft,
+                    child: GestureDetector(
+                      onTap: () {
+                        Navigator.of(context).pop();
+                      },
+                      child: SvgPicture.asset(
+                        'assets/svgs/back_button.svg',
+                      ),
+                    ),
+                  ),
+                  const SizedBox(
+                    height: 28,
+                  ),
+                  Container(
+                    padding: const EdgeInsets.symmetric(
+                      horizontal: 16,
+                      vertical: 24,
+                    ),
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(16),
+                      color: white,
+                    ),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        title(),
+                        const SizedBox(height: 24),
+                        nameInput(),
+                        ageInput(),
+                        weightInput(),
+                        heightInput(),
+                        const SizedBox(height: 16),
+                        submitButton(),
+                      ],
+                    ),
+                  ),
                 ],
               ),
             ),
-          ],
+          ),
         ),
       );
     }
