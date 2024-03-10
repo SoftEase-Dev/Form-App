@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:form_app/screens/widgets/custom_text_field.dart';
-import 'package:form_app/screens/widgets/option_item.dart';
-import 'package:form_app/screens/widgets/step_bar.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:form_app/themes/theme.dart';
 
 class HomePage extends StatelessWidget {
@@ -13,11 +11,11 @@ class HomePage extends StatelessWidget {
       color: primary_500,
       child: Stack(
         children: [
-          const Image(
+          SvgPicture.asset(
+            'assets/svgs/home_bg.svg',
             width: double.infinity,
             height: double.infinity,
             fit: BoxFit.cover,
-            image: AssetImage('assets/imgs/home_bg.png'),
           ),
           Positioned(
             bottom: 40,
@@ -52,7 +50,7 @@ class HomePage extends StatelessWidget {
                         backgroundColor:
                             MaterialStateProperty.all(primary_500)),
                     onPressed: () {
-                      Navigator.pushNamed(context, '/test');
+                      Navigator.pushNamed(context, '/form-page');
                     },
                     child: Text(
                       'Mulai',
