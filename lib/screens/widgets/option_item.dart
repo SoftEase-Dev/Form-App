@@ -28,7 +28,6 @@ class _OptionItemState extends State<OptionItem> {
   @override
   void didUpdateWidget(covariant OptionItem oldWidget) {
     super.didUpdateWidget(oldWidget);
-    print(widget.conditionState);
     if (widget.idOption == widget.conditionState) {
       setState(() {
         isSelected = true;
@@ -76,11 +75,13 @@ class _OptionItemState extends State<OptionItem> {
             width: 12,
           ),
           Expanded(
-            child: Text(widget.question,
-                style: Theme.of(context)
-                    .textTheme
-                    .labelMedium
-                    ?.copyWith(color: isSelected ? white : black)),
+            child: Text(
+              widget.question,
+              style: Theme.of(context).textTheme.labelMedium?.copyWith(
+                    color: isSelected ? white : black,
+                    fontWeight: FontWeight.w500,
+                  ),
+            ),
           ),
           const SizedBox(
             width: 12,

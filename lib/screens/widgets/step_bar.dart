@@ -3,8 +3,10 @@ import 'package:form_app/themes/theme.dart';
 
 class StepBar extends StatefulWidget {
   final int stepNumber;
+  final int questionsCount;
 
-  const StepBar({super.key, required this.stepNumber});
+  const StepBar(
+      {super.key, required this.stepNumber, required this.questionsCount});
 
   @override
   State<StepBar> createState() => _StepBarState();
@@ -14,11 +16,10 @@ class _StepBarState extends State<StepBar> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: neutral_400,
       child: Row(
         children: [
           Text(
-            "${widget.stepNumber}/18",
+            "${widget.stepNumber}/${widget.questionsCount}",
             style: Theme.of(context)
                 .textTheme
                 .bodySmall
@@ -36,7 +37,7 @@ class _StepBarState extends State<StepBar> {
                 ),
               ),
               child: FractionallySizedBox(
-                widthFactor: widget.stepNumber / 18,
+                widthFactor: widget.stepNumber / widget.questionsCount,
                 child: Container(
                   height: double.infinity,
                   decoration: BoxDecoration(
