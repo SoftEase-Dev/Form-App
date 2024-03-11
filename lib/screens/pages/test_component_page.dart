@@ -99,6 +99,7 @@ class _TestComponentPageState extends State<TestComponentPage> {
                 ),
                 StepBar(
                   stepNumber: stepNumber,
+                  questionsCount: 5,
                 ),
                 IconButton(
                     onPressed: () {

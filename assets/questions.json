@@ -1,0 +1,34 @@
+[
+  {
+    "type": "multiple",
+    "questions": "Pilih salah satu dari masing-masing pasangan pernyataan berikut",
+    "answer_a": "Pekerjaan Anda banyak tuntutat fisik untuk menyelesaikannya",
+    "answer_b": "Pekerjaan anda memberikan rasa frustasiyang besar"
+  },
+  {
+    "type": "multiple",
+    "questions": "Pilih salah satu dari masing-masing pasangan pernyataan berikut",
+    "answer_a": "Anda sangat puas dengan hasil kerja anda",
+    "answer_b": "Anda tidak puas dengan hasil kerja anda"
+  },
+  {
+    "type": "multiple",
+    "questions": "Pilih salah satu dari masing-masing pasangan pernyataan berikut",
+    "answer_a": "Saya orangnya penyabar",
+    "answer_b": "Saya orangnya tidak sabaran"
+  },
+  {
+    "type": "multiple",
+    "questions": "Pilih salah satu dari masing-masing pasangan pernyataan berikut",
+    "answer_a": "Saya tim bubur diaduk",
+    "answer_b": "Saya tim bubur tidak diaduk"
+  },
+  {
+    "type": "input",
+    "questions": "Seberapa besar anda semangat untuk menjalani hari?"
+  },
+  {
+    "type": "input",
+    "questions": "Berapa nilai mood anda hari ini?"
+  }
+]
