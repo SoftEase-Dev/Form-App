@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:form_app/screens/pages/form_page.dart';
 import 'package:form_app/screens/pages/home_page.dart';
-import 'package:form_app/screens/pages/splash_page.dart';
-import 'package:form_app/screens/pages/test_component_page.dart';
 import 'package:form_app/themes/theme.dart';
 
 void main() {
@@ -20,7 +19,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       routes: {
         '/': (context) => const HomePage(),
-        '/test': (context) => const TestComponentPage(),
+        '/form-page': (context) => const FormPage(),
       },
     );
   }
