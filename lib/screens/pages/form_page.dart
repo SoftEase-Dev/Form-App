@@ -4,7 +4,7 @@ import 'package:form_app/screens/widgets/custom_text_field.dart';
 import 'package:form_app/themes/theme.dart';
 
 class FormPage extends StatelessWidget {
-  const FormPage({super.key});
+  const FormPage({Key? key});
 
   @override
   Widget build(BuildContext context) {
@@ -74,53 +74,58 @@ class FormPage extends StatelessWidget {
       }
 
       return SingleChildScrollView(
-        child: SizedBox(
-          height: MediaQuery.of(context).size.height,
-          child: Center(
-            child: Container(
-              margin: const EdgeInsets.symmetric(horizontal: 24),
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Align(
-                    alignment: Alignment.topLeft,
-                    child: GestureDetector(
-                      onTap: () {
-                        Navigator.of(context).pop();
-                      },
-                      child: SvgPicture.asset(
-                        'assets/svgs/back_button.svg',
-                      ),
+        child: Center(
+          child: Container(
+            margin: EdgeInsets.symmetric(
+              horizontal:
+                  MediaQuery.of(context).orientation == Orientation.landscape
+                      ? 32.0
+                      : 24.0,
+            ),
+            constraints: BoxConstraints(
+              minHeight: MediaQuery.of(context).size.height,
+            ),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Align(
+                  alignment: Alignment.topLeft,
+                  child: GestureDetector(
+                    onTap: () {
+                      Navigator.of(context).pop();
+                    },
+                    child: SvgPicture.asset(
+                      'assets/svgs/back_button.svg',
                     ),
                   ),
-                  const SizedBox(
-                    height: 28,
+                ),
+                const SizedBox(
+                  height: 28,
+                ),
+                Container(
+                  padding: const EdgeInsets.symmetric(
+                    horizontal: 16,
+                    vertical: 24,
                   ),
-                  Container(
-                    padding: const EdgeInsets.symmetric(
-                      horizontal: 16,
-                      vertical: 24,
-                    ),
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(16),
-                      color: white,
-                    ),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      children: [
-                        title(),
-                        const SizedBox(height: 24),
-                        nameInput(),
-                        ageInput(),
-                        weightInput(),
-                        heightInput(),
-                        const SizedBox(height: 16),
-                        submitButton(),
-                      ],
-                    ),
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(16),
+                    color: white,
                   ),
-                ],
-              ),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      title(),
+                      const SizedBox(height: 24),
+                      nameInput(),
+                      ageInput(),
+                      weightInput(),
+                      heightInput(),
+                      const SizedBox(height: 16),
+                      submitButton(),
+                    ],
+                  ),
+                ),
+              ],
             ),
           ),
         ),
