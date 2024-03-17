@@ -5,6 +5,7 @@ import 'package:form_app/screens/cubit/answer/answer_cubit.dart';
 import 'package:form_app/screens/cubit/questions/questions_cubit.dart';
 import 'package:form_app/screens/pages/form_page.dart';
 import 'package:form_app/screens/pages/quiz_page.dart';
+import 'package:form_app/screens/pages/quiz_page_second.dart';
 import 'package:form_app/themes/theme.dart';
 
 void main() {
@@ -28,7 +29,7 @@ class MyApp extends StatelessWidget {
         theme: lightTheme,
         debugShowCheckedModeBanner: false,
         routes: {
-          '/': (context) => const QuizPage(),
+          '/': (context) => const QuizPageSecond(),
           '/form-page': (context) => const FormPage(),
         },
       ),

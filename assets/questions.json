@@ -1,15 +1,5 @@
 [
   {
-    "type": "input",
-    "questions": "Tuntutan berfikir yang Anda rasakan dalam bekerja.",
-    "image": "assets/imgs/img_input1.png"
-  },
-  {
-    "type": "input",
-    "questions": "Tuntutan waktu yang Anda rasakan dalam bekerja.",
-    "image": "assets/imgs/img_input2.png"
-  },
-  {
     "type": "multiple",
     "questions": "Pilih salah satu dari masing-masing pasangan pernyataan berikut",
     "answer_a": "Pekerjaan Anda banyak tuntutat fisik untuk menyelesaikannya",
@@ -32,5 +22,15 @@
     "questions": "Pilih salah satu dari masing-masing pasangan pernyataan berikut",
     "answer_a": "Saya tim bubur diaduk",
     "answer_b": "Saya tim bubur tidak diaduk"
+  },
+  {
+    "type": "input",
+    "questions": "Tuntutan berfikir yang Anda rasakan dalam bekerja.",
+    "image": "assets/imgs/img_input1.png"
+  },
+  {
+    "type": "input",
+    "questions": "Tuntutan waktu yang Anda rasakan dalam bekerja.",
+    "image": "assets/imgs/img_input2.png"
   }
 ]
