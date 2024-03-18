@@ -4,11 +4,13 @@ import 'package:form_app/themes/theme.dart';
 class CustomTextField extends StatefulWidget {
   final String label;
   final String hint;
+  final TextEditingController controller;
 
   const CustomTextField({
     Key? key,
     required this.label,
     required this.hint,
+    required this.controller,
   }) : super(key: key);
 
   @override
@@ -48,11 +50,12 @@ class _CustomTextFieldState extends State<CustomTextField> {
             style: Theme.of(context).textTheme.labelMedium,
           ),
           const SizedBox(
-            height: 4,
+            height: 8,
           ),
           TextFormField(
             focusNode: _focusNode,
             cursorColor: Colors.grey,
+            controller: widget.controller,
             style: Theme.of(context).textTheme.labelLarge,
             decoration: InputDecoration(
               hintText: widget.hint,

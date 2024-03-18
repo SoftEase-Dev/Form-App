@@ -3,9 +3,10 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:form_app/AppContext.dart';
 import 'package:form_app/screens/cubit/answer/answer_cubit.dart';
 import 'package:form_app/screens/cubit/questions/questions_cubit.dart';
+import 'package:form_app/screens/cubit/submit_form/submit_form_cubit.dart';
 import 'package:form_app/screens/pages/form_page.dart';
+import 'package:form_app/screens/pages/home_page.dart';
 import 'package:form_app/screens/pages/quiz_page.dart';
-import 'package:form_app/screens/pages/quiz_page_second.dart';
 import 'package:form_app/themes/theme.dart';
 
 void main() {
@@ -23,14 +24,16 @@ class MyApp extends StatelessWidget {
       providers: [
         BlocProvider(create: (_) => QuestionCubit(context: context)),
         BlocProvider(create: (_) => AnswerCubit()),
+        BlocProvider(create: (_) => SubmitFormCubit()),
       ],
       child: MaterialApp(
         title: 'Form App',
         theme: lightTheme,
         debugShowCheckedModeBanner: false,
         routes: {
-          '/': (context) => const QuizPageSecond(),
-          '/form-page': (context) => const FormPage(),
+          '/': (context) => const HomePage(),
+          '/form-page': (context) => FormPage(),
+          '/quiz-page': (context) => const QuizPageSecond(),
         },
       ),
     );

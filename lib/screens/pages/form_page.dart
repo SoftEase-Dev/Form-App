@@ -1,10 +1,19 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:form_app/screens/cubit/submit_form/submit_form_cubit.dart';
 import 'package:form_app/screens/widgets/custom_text_field.dart';
 import 'package:form_app/themes/theme.dart';
 
 class FormPage extends StatelessWidget {
-  const FormPage({Key? key});
+  FormPage({Key? key}) : super(key: key);
+
+  final TextEditingController nameController = TextEditingController(text: '');
+  final TextEditingController ageController = TextEditingController(text: '');
+  final TextEditingController weightController =
+      TextEditingController(text: '');
+  final TextEditingController heightController =
+      TextEditingController(text: '');
 
   @override
   Widget build(BuildContext context) {
@@ -29,40 +38,53 @@ class FormPage extends StatelessWidget {
       }
 
       Widget nameInput() {
-        return const CustomTextField(
+        return CustomTextField(
           label: 'Nama Lengkap',
           hint: 'Masukan nama lengkap Anda',
+          controller: nameController,
         );
       }
 
       Widget ageInput() {
-        return const CustomTextField(
+        return CustomTextField(
           label: 'Usia (Tahun)',
           hint: 'Masukan usia Anda dalam tahun',
+          controller: ageController,
         );
       }
 
       Widget weightInput() {
-        return const CustomTextField(
+        return CustomTextField(
           label: 'Berat Badan (Kg)',
           hint: 'Masukan berat badan Anda dalam kg',
+          controller: weightController,
         );
       }
 
       Widget heightInput() {
-        return const CustomTextField(
+        return CustomTextField(
           label: 'Tinggi Badan (Cm)',
           hint: 'Masukan tinggi badan Anda dalam cm',
+          controller: heightController,
         );
       }
 
-      Widget submitButton() {
+      Widget submitButton(BuildContext context) {
         return ElevatedButton(
           style: ButtonStyle(
               minimumSize:
                   MaterialStateProperty.all(const Size(double.infinity, 48)),
               backgroundColor: MaterialStateProperty.all(primary_500)),
-          onPressed: () {},
+          onPressed: () {
+            BlocProvider.of<SubmitFormCubit>(context).submitForm(
+              name: nameController.text,
+              age: ageController.text,
+              weight: weightController.text,
+              height: heightController.text,
+            );
+
+            Navigator.pushNamed(context, '/quiz-page');
+          },
           child: Text(
             'Mulai',
             style: Theme.of(context)
@@ -121,7 +143,7 @@ class FormPage extends StatelessWidget {
                       weightInput(),
                       heightInput(),
                       const SizedBox(height: 16),
-                      submitButton(),
+                      submitButton(context),
                     ],
                   ),
                 ),
@@ -137,7 +159,10 @@ class FormPage extends StatelessWidget {
       body: Stack(
         children: [
           background(),
-          inputSection(),
+          BlocProvider(
+            create: (context) => SubmitFormCubit(),
+            child: inputSection(),
+          ),
         ],
       ),
     );
