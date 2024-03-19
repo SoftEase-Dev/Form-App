@@ -14,15 +14,15 @@ class AnswerCubit extends Cubit<List<Answer>> {
     }
   }
 
-  void updateAnswer(int number, String newAnswer) {
+  void updateAnswer(int number, dynamic newAnswer) {
     final updatedAnswers = List<Answer>.from(state);
-    print(updatedAnswers.toString());
+    // print(updatedAnswers.toString());
 
     updatedAnswers[number] = Answer(number: number, answer: newAnswer);
 
-    for (Answer answer in updatedAnswers) {
-      print("Number: ${answer.number}, Answer: ${answer.answer}");
-    }
+    // for (Answer answer in updatedAnswers) {
+    //   print("Number: ${answer.number}, Answer: ${answer.answer}");
+    // }
     emit(updatedAnswers);
   }
 }

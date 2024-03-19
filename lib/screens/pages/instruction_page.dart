@@ -64,7 +64,7 @@ class InstructionPage extends StatelessWidget {
           ),
           Center(
             child: Image.asset(
-              'assets/imgs/tutor_1.png',
+              'assets/imgs/tutor_2.png',
               width: 300,
             ),
           ),
@@ -173,7 +173,7 @@ class InstructionPage extends StatelessWidget {
           ),
           Center(
             child: Image.asset(
-              'assets/imgs/tutor_2.png',
+              'assets/imgs/tutor_1.png',
               width: 300,
             ),
           ),
@@ -198,7 +198,10 @@ class InstructionPage extends StatelessWidget {
           ),
           onPressed: () {
             Navigator.pushNamedAndRemoveUntil(
-                context, '/quiz-page', (route) => false);
+                context,
+                '/quiz-page',
+                (route) =>
+                    route.settings.name == '/' || route.settings.name == null);
           },
           child: Row(
             mainAxisAlignment: MainAxisAlignment.center,

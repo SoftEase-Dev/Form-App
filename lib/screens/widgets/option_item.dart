@@ -3,8 +3,8 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:form_app/themes/theme.dart';
 
 class OptionItem extends StatefulWidget {
-  final String idOption;
-  final String conditionState;
+  final bool idOption;
+  final bool? conditionState;
   final String option;
   final String question;
   final String image;
