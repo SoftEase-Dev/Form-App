@@ -1,6 +1,6 @@
 class Answer {
   int number;
-  String answer;
+  dynamic answer;
 
   Answer({
     required this.number,

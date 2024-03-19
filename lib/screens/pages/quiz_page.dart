@@ -18,7 +18,7 @@ class QuizPageSecond extends StatefulWidget {
 }
 
 class _QuizPageSecondState extends State<QuizPageSecond> {
-  String conditionState = '';
+  bool? conditionState = null;
   int stepNumber = 0;
   int questionsCount = 0;
   final FocusNode _focusNode = FocusNode();
@@ -117,13 +117,12 @@ class _QuizPageSecondState extends State<QuizPageSecond> {
                               GestureDetector(
                                 onTap: () {
                                   setState(() {
-                                    conditionState = 'a';
-                                    answerCubit.updateAnswer(
-                                        stepNumber, question.answerA);
+                                    conditionState = true;
+                                    answerCubit.updateAnswer(stepNumber, true);
                                   });
                                 },
                                 child: OptionItem(
-                                  idOption: 'a',
+                                  idOption: true,
                                   conditionState: conditionState,
                                   option: 'assets/svgs/a_option.svg',
                                   question: question.answerA,
@@ -134,13 +133,12 @@ class _QuizPageSecondState extends State<QuizPageSecond> {
                               GestureDetector(
                                 onTap: () {
                                   setState(() {
-                                    conditionState = 'b';
-                                    answerCubit.updateAnswer(
-                                        stepNumber, question.answerB);
+                                    conditionState = false;
+                                    answerCubit.updateAnswer(stepNumber, false);
                                   });
                                 },
                                 child: OptionItem(
-                                  idOption: 'b',
+                                  idOption: false,
                                   conditionState: conditionState,
                                   option: 'assets/svgs/b_option.svg',
                                   question: question.answerB,
@@ -154,16 +152,16 @@ class _QuizPageSecondState extends State<QuizPageSecond> {
                                     const Size(double.infinity, 48),
                                   ),
                                   backgroundColor: MaterialStateProperty.all(
-                                    conditionState.isNotEmpty
+                                    conditionState != null
                                         ? primary_500
                                         : primary_100,
                                   ),
                                 ),
-                                onPressed: conditionState.isNotEmpty
+                                onPressed: conditionState != null
                                     ? () {
                                         setState(() {
                                           stepNumber++;
-                                          conditionState = '';
+                                          conditionState = null;
                                         });
                                       }
                                     : null,
@@ -177,7 +175,7 @@ class _QuizPageSecondState extends State<QuizPageSecond> {
                                           .labelLarge
                                           ?.copyWith(
                                             fontWeight: FontWeight.w700,
-                                            color: conditionState.isNotEmpty
+                                            color: conditionState != null
                                                 ? black
                                                 : neutral_500,
                                           ),
@@ -185,7 +183,7 @@ class _QuizPageSecondState extends State<QuizPageSecond> {
                                     const SizedBox(width: 6),
                                     Icon(
                                       Icons.arrow_forward_rounded,
-                                      color: conditionState.isNotEmpty
+                                      color: conditionState != null
                                           ? black
                                           : neutral_500,
                                     )
@@ -311,11 +309,28 @@ class _QuizPageSecondState extends State<QuizPageSecond> {
                                                       context)
                                                   .updateAnswer(
                                                       stepNumber, userInput);
-                                              setState(() {
-                                                stepNumber++;
-                                              });
                                               _textEditingController.clear();
                                               userInput = '';
+                                              if (stepNumber <
+                                                  questionState
+                                                          .questions.length -
+                                                      1) {
+                                                setState(() {
+                                                  stepNumber++;
+                                                });
+                                              } else {
+                                                Navigator
+                                                    .pushNamedAndRemoveUntil(
+                                                        context,
+                                                        '/result-page',
+                                                        (route) =>
+                                                            route.settings
+                                                                    .name ==
+                                                                '/' ||
+                                                            route.settings
+                                                                    .name ==
+                                                                null);
+                                              }
                                             } else {
                                               ScaffoldMessenger.of(context)
                                                   .showSnackBar(

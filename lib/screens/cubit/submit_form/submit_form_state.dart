@@ -8,9 +8,9 @@ class SubmitFormInitial extends SubmitFormState {}
 class SubmitFormLoading extends SubmitFormState {}
 
 class SubmitFormSuccess extends SubmitFormState {
-  final String message;
+  final SubmitFormModel submitFormModel;
 
-  SubmitFormSuccess(this.message);
+  SubmitFormSuccess({required this.submitFormModel});
 }
 
 class SubmitFormFailure extends SubmitFormState {
