@@ -6,6 +6,7 @@ import 'package:form_app/screens/cubit/questions/questions_cubit.dart';
 import 'package:form_app/screens/cubit/submit_form/submit_form_cubit.dart';
 import 'package:form_app/screens/pages/form_page.dart';
 import 'package:form_app/screens/pages/home_page.dart';
+import 'package:form_app/screens/pages/instruction_page.dart';
 import 'package:form_app/screens/pages/quiz_page.dart';
 import 'package:form_app/themes/theme.dart';
 
@@ -33,6 +34,7 @@ class MyApp extends StatelessWidget {
         routes: {
           '/': (context) => const HomePage(),
           '/form-page': (context) => FormPage(),
+          '/instruction-page': (context) => const InstructionPage(),
           '/quiz-page': (context) => const QuizPageSecond(),
         },
       ),
