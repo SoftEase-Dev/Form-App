@@ -111,7 +111,7 @@ class _FormPageState extends State<FormPage> {
                     height: heightController.text,
                   );
 
-                  Navigator.pushNamed(context, '/quiz-page');
+                  Navigator.pushNamed(context, '/instruction-page');
                 }
               : null,
           child: Text(
