@@ -54,16 +54,21 @@ class _StepBarState extends State<StepBar> {
               ),
             ),
           ),
-          Container(
-            padding: const EdgeInsets.all(4),
-            decoration: BoxDecoration(
-              color: white,
-              borderRadius: const BorderRadius.all(
-                Radius.circular(90),
+          GestureDetector(
+            onTap: () {
+              Navigator.pushNamedAndRemoveUntil(context, '/', (route) => false);
+            },
+            child: Container(
+              padding: const EdgeInsets.all(4),
+              decoration: BoxDecoration(
+                color: white,
+                borderRadius: const BorderRadius.all(
+                  Radius.circular(90),
+                ),
               ),
-            ),
-            child: const Icon(
-              Icons.close_rounded,
+              child: const Icon(
+                Icons.close_rounded,
+              ),
             ),
           )
         ],

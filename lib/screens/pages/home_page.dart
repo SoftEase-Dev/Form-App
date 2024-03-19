@@ -19,6 +19,15 @@ class HomePage extends StatelessWidget {
               fit: BoxFit.cover,
             ),
             Positioned(
+              top: 168,
+              left: 24,
+              right: 24,
+              child: Image.asset(
+                'assets/imgs/brain.png',
+                fit: BoxFit.fill,
+              ),
+            ),
+            Positioned(
               bottom: 40,
               left: 24,
               right: 24,

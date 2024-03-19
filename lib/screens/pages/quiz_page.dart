@@ -23,6 +23,14 @@ class _QuizPageSecondState extends State<QuizPageSecond> {
   int questionsCount = 0;
   final FocusNode _focusNode = FocusNode();
 
+  final TextEditingController _textEditingController = TextEditingController();
+
+  String userInput = '';
+
+  bool _checkInputFilled() {
+    return _textEditingController.text.isNotEmpty;
+  }
+
   @override
   void initState() {
     // TODO: implement initState
@@ -188,10 +196,6 @@ class _QuizPageSecondState extends State<QuizPageSecond> {
                           ),
                         );
                       } else if (question.type == "input") {
-                        final TextEditingController _textEditingController =
-                            TextEditingController();
-                        String userInput = '';
-
                         return GestureDetector(
                           onTap: () {
                             FocusScope.of(context).unfocus();
@@ -252,6 +256,7 @@ class _QuizPageSecondState extends State<QuizPageSecond> {
                                 TextField(
                                   controller: _textEditingController,
                                   onChanged: (value) {
+                                    setState(() {});
                                     userInput = value;
                                   },
                                   cursorColor: Colors.grey,
@@ -289,35 +294,42 @@ class _QuizPageSecondState extends State<QuizPageSecond> {
                                     minimumSize: MaterialStateProperty.all(
                                       const Size(double.infinity, 48),
                                     ),
-                                    backgroundColor:
-                                        MaterialStateProperty.all(primary_500),
+                                    backgroundColor: MaterialStateProperty.all(
+                                      _checkInputFilled()
+                                          ? primary_500
+                                          : primary_100,
+                                    ),
                                   ),
-                                  onPressed: () {
-                                    if (userInput.isNotEmpty) {
-                                      int inputNumber =
-                                          int.tryParse(userInput) ?? -1;
-                                      if (inputNumber >= 1 &&
-                                          inputNumber <= 100) {
-                                        BlocProvider.of<AnswerCubit>(context)
-                                            .updateAnswer(
-                                                stepNumber, userInput);
-                                        setState(() {
-                                          stepNumber++;
-                                        });
-                                        _textEditingController.clear();
-                                        userInput = '';
-                                      } else {
-                                        ScaffoldMessenger.of(context)
-                                            .showSnackBar(
-                                          const SnackBar(
-                                            content:
-                                                Text('Isi angka dari 1 - 100'),
-                                            duration: Duration(seconds: 2),
-                                          ),
-                                        );
-                                      }
-                                    }
-                                  },
+                                  onPressed: _checkInputFilled()
+                                      ? () {
+                                          if (userInput.isNotEmpty) {
+                                            int inputNumber =
+                                                int.tryParse(userInput) ?? -1;
+                                            if (inputNumber >= 1 &&
+                                                inputNumber <= 100) {
+                                              BlocProvider.of<AnswerCubit>(
+                                                      context)
+                                                  .updateAnswer(
+                                                      stepNumber, userInput);
+                                              setState(() {
+                                                stepNumber++;
+                                              });
+                                              _textEditingController.clear();
+                                              userInput = '';
+                                            } else {
+                                              ScaffoldMessenger.of(context)
+                                                  .showSnackBar(
+                                                const SnackBar(
+                                                  content: Text(
+                                                      'Isi angka dari 1 - 100'),
+                                                  duration:
+                                                      Duration(seconds: 2),
+                                                ),
+                                              );
+                                            }
+                                          }
+                                        }
+                                      : null,
                                   child: Row(
                                     mainAxisAlignment: MainAxisAlignment.center,
                                     children: [
@@ -328,13 +340,17 @@ class _QuizPageSecondState extends State<QuizPageSecond> {
                                             .labelLarge
                                             ?.copyWith(
                                               fontWeight: FontWeight.w700,
-                                              color: Colors.black,
+                                              color: _checkInputFilled()
+                                                  ? black
+                                                  : neutral_500,
                                             ),
                                       ),
                                       const SizedBox(width: 6),
-                                      const Icon(
+                                      Icon(
                                         Icons.arrow_forward_rounded,
-                                        color: Colors.black,
+                                        color: _checkInputFilled()
+                                            ? black
+                                            : neutral_500,
                                       )
                                     ],
                                   ),
