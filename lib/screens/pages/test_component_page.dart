@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:form_app/screens/widgets/custom_text_field.dart';
 import 'package:form_app/screens/widgets/option_item.dart';
 import 'package:form_app/screens/widgets/step_bar.dart';
 import 'package:form_app/themes/theme.dart';
@@ -88,14 +87,6 @@ class _TestComponentPageState extends State<TestComponentPage> {
                 ),
                 SizedBox(
                   height: 24,
-                ),
-                CustomTextField(
-                  label: 'Nama Lengkap',
-                  hint: 'Masukkan nama lengkap anda',
-                ),
-                CustomTextField(
-                  label: 'Usia (Tahun)',
-                  hint: 'Masukkan usia anda dalam tahun',
                 ),
                 StepBar(
                   stepNumber: stepNumber,

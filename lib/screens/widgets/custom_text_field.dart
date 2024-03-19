@@ -1,14 +1,21 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:form_app/themes/theme.dart';
 
 class CustomTextField extends StatefulWidget {
   final String label;
   final String hint;
+  final TextInputType keyboardType;
+  final TextInputFormatter? textInputFormatter;
+  final TextEditingController controller;
 
   const CustomTextField({
     Key? key,
     required this.label,
     required this.hint,
+    required this.controller,
+    this.keyboardType = TextInputType.text,
+    this.textInputFormatter,
   }) : super(key: key);
 
   @override
@@ -48,11 +55,16 @@ class _CustomTextFieldState extends State<CustomTextField> {
             style: Theme.of(context).textTheme.labelMedium,
           ),
           const SizedBox(
-            height: 4,
+            height: 8,
           ),
           TextFormField(
             focusNode: _focusNode,
             cursorColor: Colors.grey,
+            controller: widget.controller,
+            keyboardType: widget.keyboardType,
+            inputFormatters: widget.textInputFormatter != null
+                ? [widget.textInputFormatter!]
+                : null,
             style: Theme.of(context).textTheme.labelLarge,
             decoration: InputDecoration(
               hintText: widget.hint,
