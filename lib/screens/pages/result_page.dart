@@ -6,6 +6,7 @@ import 'package:form_app/screens/cubit/result/result_cubit.dart';
 import 'package:form_app/screens/cubit/result/result_state.dart';
 import 'package:form_app/screens/cubit/submit_form/submit_form_cubit.dart';
 import 'package:form_app/themes/theme.dart';
+import 'package:syncfusion_flutter_gauges/gauges.dart';
 
 class ResultPage extends StatefulWidget {
   const ResultPage({super.key});
@@ -47,7 +48,8 @@ class _ResultPageState extends State<ResultPage> {
             height:
                 (screenWidth < 450) ? screenHeight * 0.8 : screenHeight * 0.6,
             child: SingleChildScrollView(
-              child: SizedBox(
+              child: Container(
+                padding: const EdgeInsets.all(20),
                 width: double.infinity,
                 child: BlocBuilder<SubmitFormCubit, SubmitFormState>(
                   builder: (context, formState) {
@@ -74,9 +76,71 @@ class _ResultPageState extends State<ResultPage> {
                                 return Column(
                                   mainAxisSize: MainAxisSize.min,
                                   children: [
+                                    Padding(
+                                      padding: const EdgeInsets.all(36),
+                                      child: SfRadialGauge(
+                                        animationDuration: 5000,
+                                        enableLoadingAnimation: true,
+                                        axes: <RadialAxis>[
+                                          RadialAxis(
+                                            minimum: 0,
+                                            maximum: 100,
+                                            ranges: <GaugeRange>[
+                                              GaugeRange(
+                                                  startValue: 0,
+                                                  endValue: 38.00,
+                                                  color: Colors.red),
+                                              GaugeRange(
+                                                  startValue: 38.01,
+                                                  endValue: 54.66,
+                                                  color: Colors.orange),
+                                              GaugeRange(
+                                                  startValue: 54.67,
+                                                  endValue: 100,
+                                                  color: Colors.green)
+                                            ],
+                                            pointers: <GaugePointer>[
+                                              NeedlePointer(
+                                                  value: resultState
+                                                      .resultData.scor)
+                                            ],
+                                            annotations: <GaugeAnnotation>[
+                                              GaugeAnnotation(
+                                                // ignore: avoid_unnecessary_containers
+                                                widget: Container(
+                                                  child: Text(
+                                                    resultState.resultData.scor
+                                                        .toString(),
+                                                    style: Theme.of(context)
+                                                        .textTheme
+                                                        .headlineSmall
+                                                        ?.copyWith(
+                                                          fontWeight:
+                                                              FontWeight.w900,
+                                                        ),
+                                                  ),
+                                                ),
+                                                angle: 90,
+                                                positionFactor: 0.5,
+                                              ),
+                                            ],
+                                          )
+                                        ],
+                                      ),
+                                    ),
+                                    const SizedBox(height: 20),
+                                    Text(
+                                      resultState.resultData.category,
+                                      textAlign: TextAlign.end,
+                                      style: Theme.of(context)
+                                          .textTheme
+                                          .bodyLarge
+                                          ?.copyWith(
+                                            fontWeight: FontWeight.w700,
+                                          ),
+                                    ),
                                     Text(
                                         resultState.resultData.scor.toString()),
-                                    Text(resultState.resultData.category)
                                   ],
                                 );
                               }
