@@ -34,6 +34,8 @@ class ResultCubit extends Cubit<ResultState> {
 
       String categoryRes = "";
 
+      String categoryDescRes = "";
+
       List<Answer> newAnswer = dataAnswer;
 
       print("result cubit");
@@ -111,6 +113,19 @@ class ResultCubit extends Cubit<ResultState> {
         categoryRes = "Undifined";
       }
 
+      if (scor >= 0 && scor <= 38) {
+        categoryDescRes =
+            "Anda mungkin mengalami kurangnya stimulasi mental. Pertimbangkan untuk menambahkan tantangan atau fokus lebih dalam untuk meningkatkan kinerja.";
+      } else if (scor > 38 && scor <= 54.66) {
+        categoryDescRes =
+            "Anda berada pada tingkat beban kognitif yang optimal. Kinerja Anda seharusnya dalam rentang yang baik.";
+      } else if (scor > 54.66 && scor <= 100) {
+        categoryDescRes =
+            "Anda mungkin mengalami tekanan mental yang berlebihan. Pertimbangkan untuk mengurangi tugas atau menyesuaikan strategi Anda.";
+      } else {
+        categoryDescRes = "Undifined";
+      }
+
       var url = Uri.parse("${Constants.BASE_URL}/form-record-skor-nasa-tlxes/");
 
       var response = await http.post(
@@ -158,7 +173,8 @@ class ResultCubit extends Cubit<ResultState> {
 
       if (response.statusCode >= 200 && response.statusCode < 300) {
         emit(LoadedResultState(
-            resultData: Result(scor: scor, category: categoryRes)));
+            resultData: Result(
+                scor: scor, category: categoryRes, desc: categoryDescRes)));
       } else {
         throw 'Failed get data : ${json.decode(response.body)['message']}';
       }

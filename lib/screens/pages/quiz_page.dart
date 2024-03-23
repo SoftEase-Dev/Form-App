@@ -269,7 +269,7 @@ class _QuizPageSecondState extends State<QuizPageSecond> {
                                       horizontal: 20,
                                     ),
                                     filled: true,
-                                    fillColor: Colors.grey[200],
+                                    fillColor: neutral_50,
                                     border: OutlineInputBorder(
                                       borderRadius: BorderRadius.circular(12),
                                       borderSide: BorderSide(
