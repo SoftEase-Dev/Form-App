@@ -1,3 +1,5 @@
+// ignore_for_file: use_full_hex_values_for_flutter_colors
+
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:form_app/data/model/answer.dart';
@@ -18,11 +20,11 @@ class ResultPage extends StatefulWidget {
 class _ResultPageState extends State<ResultPage> {
   Color _getTextColor(double score) {
     if (score >= 0 && score <= 33.3) {
-      return Color(0xFFDDF3C44);
+      return const Color(0xffddf3c44);
     } else if (score > 33.3 && score <= 66.6) {
-      return Color(0xFFE28C00);
+      return const Color(0xFFE28C00);
     } else if (score > 66.6 && score <= 100) {
-      return Color(0xFF9BD800);
+      return const Color(0xFF9BD800);
     }
     return Colors.black;
   }
@@ -37,7 +39,7 @@ class _ResultPageState extends State<ResultPage> {
     return Scaffold(
       body: SafeArea(
         child: Container(
-          margin: EdgeInsets.only(top: 16),
+          margin: const EdgeInsets.only(top: 16),
           child: Column(
             children: [
               Column(
@@ -71,11 +73,30 @@ class _ResultPageState extends State<ResultPage> {
                       child: BlocBuilder<SubmitFormCubit, SubmitFormState>(
                         builder: (context, formState) {
                           if (formState is SubmitFormLoading) {
-                            return const Center(
-                                child: CircularProgressIndicator());
+                            return Center(
+                                child: CircularProgressIndicator(
+                              color: primary_500,
+                            ));
                           } else if (formState is SubmitFormFailure) {
                             return Center(
-                              child: Text(formState.error),
+                              child: Column(
+                                children: [
+                                  Icon(
+                                    Icons.warning_amber_rounded,
+                                    color: primary_500,
+                                    size: 148,
+                                  ),
+                                  Text(
+                                    formState.error,
+                                    style: Theme.of(context)
+                                        .textTheme
+                                        .bodyLarge
+                                        ?.copyWith(
+                                          fontWeight: FontWeight.w700,
+                                        ),
+                                  )
+                                ],
+                              ),
                             );
                           } else if (formState is SubmitFormSuccess) {
                             return BlocBuilder<AnswerCubit, List<Answer>>(
@@ -85,13 +106,32 @@ class _ResultPageState extends State<ResultPage> {
                                 return BlocBuilder<ResultCubit, ResultState>(
                                   builder: (context, resultState) {
                                     if (resultState is InitialResultState) {
-                                      return const Center(
-                                          child: CircularProgressIndicator());
+                                      return Center(
+                                          child: CircularProgressIndicator(
+                                        color: primary_500,
+                                      ));
                                     } else if (resultState
                                         is ErrorResultState) {
                                       return Center(
-                                          child:
-                                              Text(resultState.errorMessage));
+                                        child: Column(
+                                          children: [
+                                            Icon(
+                                              Icons.warning_amber_rounded,
+                                              color: primary_500,
+                                              size: 148,
+                                            ),
+                                            Text(
+                                              resultState.errorMessage,
+                                              style: Theme.of(context)
+                                                  .textTheme
+                                                  .bodyLarge
+                                                  ?.copyWith(
+                                                    fontWeight: FontWeight.w700,
+                                                  ),
+                                            )
+                                          ],
+                                        ),
+                                      );
                                     } else if (resultState
                                         is LoadedResultState) {
                                       return Column(
@@ -106,6 +146,25 @@ class _ResultPageState extends State<ResultPage> {
                                               radius: 100,
                                               value:
                                                   resultState.resultData.scor,
+                                              builder:
+                                                  (context, child, value) =>
+                                                      Center(
+                                                child: Text(
+                                                  resultState.resultData.scor
+                                                      .toString(),
+                                                  style: Theme.of(context)
+                                                      .textTheme
+                                                      .titleLarge
+                                                      ?.copyWith(
+                                                        fontWeight:
+                                                            FontWeight.w800,
+                                                        color: _getTextColor(
+                                                            resultState
+                                                                .resultData
+                                                                .scor),
+                                                      ),
+                                                ),
+                                              ),
                                               axis: const GaugeAxis(
                                                 min: 0,
                                                 max: 100,
@@ -159,19 +218,6 @@ class _ResultPageState extends State<ResultPage> {
                                             ),
                                           ),
                                           Text(
-                                            resultState.resultData.scor
-                                                .toString(),
-                                            style: Theme.of(context)
-                                                .textTheme
-                                                .displaySmall
-                                                ?.copyWith(
-                                                  fontWeight: FontWeight.w800,
-                                                  color: _getTextColor(
-                                                      resultState
-                                                          .resultData.scor),
-                                                ),
-                                          ),
-                                          Text(
                                             resultState.resultData.category,
                                             textAlign: TextAlign.end,
                                             style: Theme.of(context)
@@ -184,7 +230,7 @@ class _ResultPageState extends State<ResultPage> {
                                                           .resultData.scor),
                                                 ),
                                           ),
-                                          SizedBox(
+                                          const SizedBox(
                                             height: 8,
                                           ),
                                           Text(

@@ -40,13 +40,13 @@ class _StepBarState extends State<StepBar> {
                 widthFactor: widget.stepNumber / widget.questionsCount,
                 child: Container(
                   height: double.infinity,
-                  decoration: BoxDecoration(
+                  decoration: const BoxDecoration(
                     gradient: LinearGradient(
                         begin: Alignment.centerLeft,
                         end: Alignment.centerRight,
                         stops: [0, 1],
                         colors: [Color(0XFFEF8633), Color(0XFFEEC049)]),
-                    borderRadius: const BorderRadius.all(
+                    borderRadius: BorderRadius.all(
                       Radius.circular(90),
                     ),
                   ),
@@ -56,7 +56,7 @@ class _StepBarState extends State<StepBar> {
           ),
           GestureDetector(
             onTap: () {
-              Navigator.pushNamedAndRemoveUntil(context, '/', (route) => false);
+              _showCancelConfirmationDialog(context);
             },
             child: Container(
               padding: const EdgeInsets.all(4),
@@ -73,6 +73,70 @@ class _StepBarState extends State<StepBar> {
           )
         ],
       ),
+    );
+  }
+
+  void _showCancelConfirmationDialog(BuildContext context) {
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return AlertDialog(
+          title: Text(
+            'Batalkan Pengisian?',
+            textAlign: TextAlign.center,
+            style: Theme.of(context).textTheme.bodySmall?.copyWith(
+                  fontWeight: FontWeight.w700,
+                ),
+          ),
+          content: Text(
+            'Apakah Anda yakin ingin membatalkan pengisian formulir NASA TLX? Tindakan ini akan menghapus semua data yang telah Anda masukkan.',
+            textAlign: TextAlign.center,
+            style: Theme.of(context).textTheme.labelSmall,
+          ),
+          actions: <Widget>[
+            ElevatedButton(
+              style: ButtonStyle(
+                minimumSize: MaterialStateProperty.all(
+                  const Size(double.infinity, 48),
+                ),
+                backgroundColor: MaterialStateProperty.all(neutral_200),
+              ),
+              onPressed: () {
+                Navigator.pop(context);
+              },
+              child: Text(
+                'Lanjut Isi',
+                style: Theme.of(context)
+                    .textTheme
+                    .bodyMedium
+                    ?.copyWith(color: neutral_900, fontWeight: FontWeight.w900),
+              ),
+            ),
+            const SizedBox(
+              height: 12,
+            ),
+            ElevatedButton(
+              style: ButtonStyle(
+                minimumSize: MaterialStateProperty.all(
+                  const Size(double.infinity, 48),
+                ),
+                backgroundColor: MaterialStateProperty.all(primary_500),
+              ),
+              onPressed: () {
+                Navigator.pushNamedAndRemoveUntil(
+                    context, '/', (route) => false);
+              },
+              child: Text(
+                'Konfirmasi',
+                style: Theme.of(context)
+                    .textTheme
+                    .bodyMedium
+                    ?.copyWith(color: neutral_900, fontWeight: FontWeight.w900),
+              ),
+            )
+          ],
+        );
+      },
     );
   }
 }
