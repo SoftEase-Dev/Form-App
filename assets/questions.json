@@ -2,92 +2,122 @@
   {
     "type": "multiple",
     "questions": "Pilih salah satu dari masing-masing pasangan pernyataan berikut",
-    "answer_a": "Pekerjaan Anda banyak tuntutat fisik untuk menyelesaikannya",
-    "answer_b": "Pekerjaan anda memberikan rasa frustasiyang besar"
+    "answer_a": "Anda lebih banyak effort dalam menjalankan pekerjaan Anda",
+    "answer_b": "Anda sangat puas dengan hasil kerja Anda",
+    "image_a": "assets/imgs/effort.png",
+    "image_b": "assets/imgs/puas.png"
   },
   {
     "type": "multiple",
     "questions": "Pilih salah satu dari masing-masing pasangan pernyataan berikut",
-    "answer_a": "Anda sangat puas dengan hasil kerja anda",
-    "answer_b": "Anda tidak puas dengan hasil kerja anda"
+    "answer_a": "Pekerjaan Anda mempunyai tekanan waktu yang besar",
+    "answer_b": "Pekerjaan Anda memberikan rasa frustasi yang besar",
+    "image_a": "assets/imgs/waktu.png",
+    "image_b": "assets/imgs/frustasi.png"
   },
   {
     "type": "multiple",
     "questions": "Pilih salah satu dari masing-masing pasangan pernyataan berikut",
-    "answer_a": "Saya orangnya penyabar",
-    "answer_b": "Saya orangnya tidak sabaran"
+    "answer_a": "Pekerjaan Anda mempunyai tekanan waktu yang besar",
+    "answer_b": "Anda lebih banyak effort dalam menjalankan pekerjaan Anda",
+    "image_a": "assets/imgs/waktu.png",
+    "image_b": "assets/imgs/effort.png"
   },
   {
     "type": "multiple",
     "questions": "Pilih salah satu dari masing-masing pasangan pernyataan berikut",
-    "answer_a": "Saya tim bubur diaduk",
-    "answer_b": "Saya tim bubur tidak diaduk"
+    "answer_a": "Pekerjaan Anda banyak tuntutan fisik untuk menyelesaikannya",
+    "answer_b": "Pekerjaan Anda memberikan rasa frustasi yang besar",
+    "image_a": "assets/imgs/fisik.png",
+    "image_b": "assets/imgs/frustasi.png"
   },
   {
     "type": "multiple",
     "questions": "Pilih salah satu dari masing-masing pasangan pernyataan berikut",
-    "answer_a": "Saya tim bubur diaduk",
-    "answer_b": "Saya tim bubur tidak diaduk"
+    "answer_a": "Anda sangat puas dengan hasil kerja Anda",
+    "answer_b": "Pekerjaan Anda memberikan rasa frustasi yang besar",
+    "image_a": "assets/imgs/puas.png",
+    "image_b": "assets/imgs/frustasi.png"
   },
   {
     "type": "multiple",
     "questions": "Pilih salah satu dari masing-masing pasangan pernyataan berikut",
-    "answer_a": "Saya tim bubur diaduk",
-    "answer_b": "Saya tim bubur tidak diaduk"
+    "answer_a": "Pekerjaan Anda banyak tuntutan fisik untuk menyelesaikannya",
+    "answer_b": "Pekerjaan Anda mempunyai tekanan waktu yang besar",
+    "image_a": "assets/imgs/fisik.png",
+    "image_b": "assets/imgs/waktu.png"
   },
   {
     "type": "multiple",
     "questions": "Pilih salah satu dari masing-masing pasangan pernyataan berikut",
-    "answer_a": "Saya tim bubur diaduk",
-    "answer_b": "Saya tim bubur tidak diaduk"
+    "answer_a": "Pekerjaan Anda banyak tuntutan fisik untuk menyelesaikannya",
+    "answer_b": "Anda sangat puas dengan hasil kerja Anda",
+    "image_a": "assets/imgs/fisik.png",
+    "image_b": "assets/imgs/puas.png"
   },
   {
     "type": "multiple",
     "questions": "Pilih salah satu dari masing-masing pasangan pernyataan berikut",
-    "answer_a": "Saya tim bubur diaduk",
-    "answer_b": "Saya tim bubur tidak diaduk"
+    "answer_a": "Pekerjaan Anda mempunyai tekanan waktu yang besar",
+    "answer_b": "Pekerjaan Anda mempunyai tuntutan berfikir yang sangat besar",
+    "image_a": "assets/imgs/waktu.png",
+    "image_b": "assets/imgs/berfikir.png"
   },
   {
     "type": "multiple",
     "questions": "Pilih salah satu dari masing-masing pasangan pernyataan berikut",
-    "answer_a": "Saya tim bubur diaduk",
-    "answer_b": "Saya tim bubur tidak diaduk"
+    "answer_a": "Pekerjaan Anda memberikan rasa frustasi yang besar",
+    "answer_b": "Anda lebih banyak effort dalam menjalankan pekerjaan Anda",
+    "image_a": "assets/imgs/frustasi.png",
+    "image_b": "assets/imgs/effort.png"
   },
   {
     "type": "multiple",
     "questions": "Pilih salah satu dari masing-masing pasangan pernyataan berikut",
-    "answer_a": "Saya tim bubur diaduk",
-    "answer_b": "Saya tim bubur tidak diaduk"
+    "answer_a": "Anda sangat puas dengan hasil kerja Anda",
+    "answer_b": "Pekerjaan Anda mempunyai tuntutan berfikir yang sangat besar",
+    "image_a": "assets/imgs/puas.png",
+    "image_b": "assets/imgs/berfikir.png"
   },
   {
     "type": "multiple",
     "questions": "Pilih salah satu dari masing-masing pasangan pernyataan berikut",
-    "answer_a": "Saya tim bubur diaduk",
-    "answer_b": "Saya tim bubur tidak diaduk"
+    "answer_a": "Anda sangat puas dengan hasil kerja Anda",
+    "answer_b": "Pekerjaan Anda mempunyai tekanan waktu yang besar",
+    "image_a": "assets/imgs/puas.png",
+    "image_b": "assets/imgs/waktu.png"
   },
   {
     "type": "multiple",
     "questions": "Pilih salah satu dari masing-masing pasangan pernyataan berikut",
-    "answer_a": "Saya tim bubur diaduk",
-    "answer_b": "Saya tim bubur tidak diaduk"
+    "answer_a": "Pekerjaan Anda mempunyai tuntutan berfikir yang sangat besar",
+    "answer_b": "Anda lebih banyak effort dalam menjalankan pekerjaan Anda",
+    "image_a": "assets/imgs/berfikir.png",
+    "image_b": "assets/imgs/effort.png"
   },
   {
     "type": "multiple",
     "questions": "Pilih salah satu dari masing-masing pasangan pernyataan berikut",
-    "answer_a": "Saya tim bubur diaduk",
-    "answer_b": "Saya tim bubur tidak diaduk"
+    "answer_a": "Pekerjaan Anda mempunyai tuntutan berfikir yang besar",
+    "answer_b": "Pekerjaan Anda banyak tuntutan fisik untuk menyelesaikannya",
+    "image_a": "assets/imgs/berfikir.png",
+    "image_b": "assets/imgs/fisik.png"
   },
   {
     "type": "multiple",
     "questions": "Pilih salah satu dari masing-masing pasangan pernyataan berikut",
-    "answer_a": "Saya tim bubur diaduk",
-    "answer_b": "Saya tim bubur tidak diaduk"
+    "answer_a": "Anda lebih banyak effort dalam menjalankan pekerjaan Anda",
+    "answer_b": "Pekerjaan Anda banyak tuntutan fisik untuk menyelesaikannya",
+    "image_a": "assets/imgs/effort.png",
+    "image_b": "assets/imgs/fisik.png"
   },
   {
     "type": "multiple",
     "questions": "Pilih salah satu dari masing-masing pasangan pernyataan berikut",
-    "answer_a": "Saya tim bubur diaduk",
-    "answer_b": "Saya tim bubur tidak diaduk"
+    "answer_a": "Pekerjaan Anda memberikan rasa frustasi yang besar",
+    "answer_b": "Pekerjaan Anda mempunyai tuntutan berfikir yang sangat besar",
+    "image_a": "assets/imgs/frustasi.png",
+    "image_b": "assets/imgs/berfikir.png"
   },
   {
     "type": "input",
@@ -101,22 +131,22 @@
   },
   {
     "type": "input",
-    "questions": "Tuntutan waktu yang Anda rasakan dalam bekerja.",
-    "image": "assets/imgs/img_input2.png"
+    "questions": "Tuntutan fisik yang Anda rasakan dalam bekerja.",
+    "image": "assets/imgs/img_input3.png"
   },
   {
     "type": "input",
-    "questions": "Tuntutan waktu yang Anda rasakan dalam bekerja.",
-    "image": "assets/imgs/img_input2.png"
+    "questions": "Kepuasan terhadap performa kerja Anda.",
+    "image": "assets/imgs/img_input4.png"
   },
   {
     "type": "input",
-    "questions": "Tuntutan waktu yang Anda rasakan dalam bekerja.",
-    "image": "assets/imgs/img_input2.png"
+    "questions": "Tuntutan kerja keras yang Anda rasakan.",
+    "image": "assets/imgs/img_input5.png"
   },
   {
     "type": "input",
-    "questions": "Tuntutan waktu yang Anda rasakan dalam bekerja.",
-    "image": "assets/imgs/img_input2.png"
+    "questions": "Perasaan frustasi yang Anda rasakan dalam pekerjaan Anda.",
+    "image": "assets/imgs/img_input6.png"
   }
 ]

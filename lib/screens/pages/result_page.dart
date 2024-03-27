@@ -19,12 +19,12 @@ class ResultPage extends StatefulWidget {
 
 class _ResultPageState extends State<ResultPage> {
   Color _getTextColor(double score) {
-    if (score >= 0 && score <= 33.3) {
+    if (score >= 0 && score <= 38) {
       return const Color(0xffddf3c44);
-    } else if (score > 33.3 && score <= 66.6) {
-      return const Color(0xFFE28C00);
-    } else if (score > 66.6 && score <= 100) {
+    } else if (score > 38 && score <= 54.66) {
       return const Color(0xFF9BD800);
+    } else if (score > 54.66 && score <= 100) {
+      return const Color(0xFFE28C00);
     }
     return Colors.black;
   }
@@ -39,7 +39,7 @@ class _ResultPageState extends State<ResultPage> {
     return Scaffold(
       body: SafeArea(
         child: Container(
-          margin: const EdgeInsets.only(top: 16),
+          margin: const EdgeInsets.only(top: 24),
           child: Column(
             children: [
               Column(
@@ -182,7 +182,7 @@ class _ResultPageState extends State<ResultPage> {
                                                 segments: [
                                                   GaugeSegment(
                                                     from: 0,
-                                                    to: 33.3,
+                                                    to: 38,
                                                     gradient: GaugeAxisGradient(
                                                         colors: [
                                                           Color(0xFFDDF3C44),
@@ -192,23 +192,23 @@ class _ResultPageState extends State<ResultPage> {
                                                         Radius.circular(4),
                                                   ),
                                                   GaugeSegment(
-                                                    from: 33.3,
-                                                    to: 66.6,
+                                                    from: 38,
+                                                    to: 54.66,
                                                     gradient: GaugeAxisGradient(
                                                         colors: [
-                                                          Color(0xFFE28C00),
-                                                          Color(0xFFEFD422)
+                                                          Color(0xFF9BD800),
+                                                          Color(0xFF9BD800),
                                                         ]),
                                                     cornerRadius:
                                                         Radius.circular(4),
                                                   ),
                                                   GaugeSegment(
-                                                    from: 66.6,
+                                                    from: 54.66,
                                                     to: 100,
                                                     gradient: GaugeAxisGradient(
                                                         colors: [
-                                                          Color(0xFF9BD800),
-                                                          Color(0xFF9BD800)
+                                                          Color(0xFFEFD422),
+                                                          Color(0xFFE28C00),
                                                         ]),
                                                     cornerRadius:
                                                         Radius.circular(4),
@@ -243,6 +243,170 @@ class _ResultPageState extends State<ResultPage> {
                                                   color: black,
                                                   fontWeight: FontWeight.w500,
                                                 ),
+                                          ),
+                                          const SizedBox(
+                                            height: 40,
+                                          ),
+                                          Container(
+                                            width: double.infinity,
+                                            padding: const EdgeInsets.symmetric(
+                                                horizontal: 16),
+                                            child: Row(
+                                              mainAxisAlignment:
+                                                  MainAxisAlignment.center,
+                                              children: [
+                                                Column(
+                                                  children: [
+                                                    Container(
+                                                      width: 38,
+                                                      height: 18,
+                                                      decoration: BoxDecoration(
+                                                        gradient:
+                                                            const LinearGradient(
+                                                                colors: [
+                                                              Color(
+                                                                  0xFFDDF3C44),
+                                                              Color(0xFFE28C00)
+                                                            ]),
+                                                        borderRadius:
+                                                            BorderRadius
+                                                                .circular(6),
+                                                      ),
+                                                    ),
+                                                    Text(
+                                                      'Overload',
+                                                      textAlign:
+                                                          TextAlign.center,
+                                                      style: Theme.of(context)
+                                                          .textTheme
+                                                          .labelLarge
+                                                          ?.copyWith(
+                                                            color: neutral_900,
+                                                            fontWeight:
+                                                                FontWeight.w700,
+                                                          ),
+                                                    ),
+                                                    Text(
+                                                      '0 - 38.00',
+                                                      textAlign:
+                                                          TextAlign.center,
+                                                      style: Theme.of(context)
+                                                          .textTheme
+                                                          .labelLarge
+                                                          ?.copyWith(
+                                                            color: neutral_400,
+                                                            fontWeight:
+                                                                FontWeight.w800,
+                                                          ),
+                                                    ),
+                                                  ],
+                                                ),
+                                                const Spacer(),
+                                                Container(
+                                                  width: 1,
+                                                  height: 60,
+                                                  color: neutral_300,
+                                                ),
+                                                const Spacer(),
+                                                Column(
+                                                  children: [
+                                                    Container(
+                                                      width: 38,
+                                                      height: 18,
+                                                      decoration: BoxDecoration(
+                                                        gradient:
+                                                            const LinearGradient(
+                                                                colors: [
+                                                              Color(0xFF9BD800),
+                                                              Color(0xFF9BD800),
+                                                            ]),
+                                                        borderRadius:
+                                                            BorderRadius
+                                                                .circular(6),
+                                                      ),
+                                                    ),
+                                                    Text(
+                                                      'Optimal Load',
+                                                      textAlign:
+                                                          TextAlign.center,
+                                                      style: Theme.of(context)
+                                                          .textTheme
+                                                          .labelLarge
+                                                          ?.copyWith(
+                                                            color: neutral_900,
+                                                            fontWeight:
+                                                                FontWeight.w700,
+                                                          ),
+                                                    ),
+                                                    Text(
+                                                      '38.01 - 54.66',
+                                                      textAlign:
+                                                          TextAlign.center,
+                                                      style: Theme.of(context)
+                                                          .textTheme
+                                                          .labelLarge
+                                                          ?.copyWith(
+                                                            color: neutral_400,
+                                                            fontWeight:
+                                                                FontWeight.w800,
+                                                          ),
+                                                    ),
+                                                  ],
+                                                ),
+                                                const Spacer(),
+                                                Container(
+                                                  width: 1,
+                                                  height: 60,
+                                                  color: neutral_300,
+                                                ),
+                                                const Spacer(),
+                                                Column(
+                                                  children: [
+                                                    Container(
+                                                      width: 38,
+                                                      height: 18,
+                                                      decoration: BoxDecoration(
+                                                        gradient:
+                                                            const LinearGradient(
+                                                                colors: [
+                                                              Color(0xFFEFD422),
+                                                              Color(0xFFE28C00),
+                                                            ]),
+                                                        borderRadius:
+                                                            BorderRadius
+                                                                .circular(6),
+                                                      ),
+                                                    ),
+                                                    Text(
+                                                      'Underload',
+                                                      textAlign:
+                                                          TextAlign.center,
+                                                      style: Theme.of(context)
+                                                          .textTheme
+                                                          .labelLarge
+                                                          ?.copyWith(
+                                                            color: neutral_900,
+                                                            fontWeight:
+                                                                FontWeight.w700,
+                                                          ),
+                                                    ),
+                                                    Text(
+                                                      '54.66 - 100',
+                                                      textAlign:
+                                                          TextAlign.center,
+                                                      style: Theme.of(context)
+                                                          .textTheme
+                                                          .labelLarge
+                                                          ?.copyWith(
+                                                            color: neutral_400,
+                                                            fontWeight:
+                                                                FontWeight.w800,
+                                                          ),
+                                                    ),
+                                                  ],
+                                                ),
+                                              ],
+                                            ),
                                           ),
                                         ],
                                       );
