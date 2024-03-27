@@ -126,7 +126,7 @@ class _QuizPageSecondState extends State<QuizPageSecond> {
                                   conditionState: conditionState,
                                   option: 'assets/svgs/a_option.svg',
                                   question: question.answerA,
-                                  image: 'assets/imgs/option_img.png',
+                                  image: question.imageA,
                                 ),
                               ),
                               const SizedBox(height: 20),
@@ -142,7 +142,7 @@ class _QuizPageSecondState extends State<QuizPageSecond> {
                                   conditionState: conditionState,
                                   option: 'assets/svgs/b_option.svg',
                                   question: question.answerB,
-                                  image: 'assets/imgs/option_img.png',
+                                  image: question.imageB,
                                 ),
                               ),
                               const SizedBox(height: 40),
@@ -215,7 +215,6 @@ class _QuizPageSecondState extends State<QuizPageSecond> {
                                 const SizedBox(height: 24),
                                 Container(
                                   height: 176,
-                                  padding: const EdgeInsets.all(20),
                                   alignment: Alignment.bottomLeft,
                                   width: double.infinity,
                                   decoration: BoxDecoration(
@@ -226,15 +225,56 @@ class _QuizPageSecondState extends State<QuizPageSecond> {
                                         fit: BoxFit.cover),
                                     borderRadius: BorderRadius.circular(16),
                                   ),
-                                  child: Text(
-                                    question.question,
-                                    style: Theme.of(context)
-                                        .textTheme
-                                        .bodyMedium
-                                        ?.copyWith(
-                                          color: Colors.white,
-                                          fontWeight: FontWeight.w900,
+                                  child: Stack(
+                                    children: [
+                                      Container(
+                                        height: double.infinity,
+                                        width: double.infinity,
+                                        decoration: BoxDecoration(
+                                          borderRadius:
+                                              BorderRadius.circular(16),
+                                          gradient: LinearGradient(
+                                            begin: Alignment.bottomLeft,
+                                            end: Alignment.topRight,
+                                            colors: [
+                                              black.withOpacity(.4),
+                                              Colors.transparent
+                                            ],
+                                            stops: [0.5, 1.0],
+                                          ),
                                         ),
+                                      ),
+                                      Container(
+                                        width: 150,
+                                        margin: EdgeInsets.only(
+                                            left: 20, bottom: 20),
+                                        child: Align(
+                                          alignment: Alignment.bottomLeft,
+                                          child: Text(
+                                            question.question,
+                                            style: Theme.of(context)
+                                                .textTheme
+                                                .bodyMedium
+                                                ?.copyWith(
+                                                  fontWeight: FontWeight.w900,
+                                                  foreground: Paint()
+                                                    ..shader =
+                                                        const LinearGradient(
+                                                      colors: [
+                                                        Color(0xFFEF8633),
+                                                        Color(0xFFEEC049)
+                                                      ],
+                                                    ).createShader(
+                                                            const Rect.fromLTWH(
+                                                                0.0,
+                                                                0.0,
+                                                                200.0,
+                                                                70.0)),
+                                                ),
+                                          ),
+                                        ),
+                                      ),
+                                    ],
                                   ),
                                 ),
                                 const SizedBox(height: 24),
@@ -303,7 +343,7 @@ class _QuizPageSecondState extends State<QuizPageSecond> {
                                           if (userInput.isNotEmpty) {
                                             int inputNumber =
                                                 int.tryParse(userInput) ?? -1;
-                                            if (inputNumber >= 1 &&
+                                            if (inputNumber >= 0 &&
                                                 inputNumber <= 100) {
                                               BlocProvider.of<AnswerCubit>(
                                                       context)
@@ -336,7 +376,7 @@ class _QuizPageSecondState extends State<QuizPageSecond> {
                                                   .showSnackBar(
                                                 const SnackBar(
                                                   content: Text(
-                                                      'Isi angka dari 1 - 100'),
+                                                      'Isi angka dari 0 - 100'),
                                                   duration:
                                                       Duration(seconds: 2),
                                                 ),

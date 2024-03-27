@@ -78,7 +78,7 @@ class _OptionItemState extends State<OptionItem> {
             child: Text(
               widget.question,
               style: Theme.of(context).textTheme.labelMedium?.copyWith(
-                    color: isSelected ? white : black,
+                    color: black,
                     fontWeight: FontWeight.w500,
                   ),
             ),
@@ -88,9 +88,9 @@ class _OptionItemState extends State<OptionItem> {
           ),
           Container(
             width: 98,
-            height: double.infinity,
+            height: 64,
             decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(6),
+              borderRadius: BorderRadius.circular(8),
               image: DecorationImage(
                 image: AssetImage(
                   widget.image,

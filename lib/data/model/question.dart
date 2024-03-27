@@ -6,6 +6,8 @@ class Question {
   String answerA;
   String answerB;
   String image;
+  String imageA;
+  String imageB;
 
   Question({
     required this.type,
@@ -13,6 +15,8 @@ class Question {
     required this.answerA,
     required this.answerB,
     required this.image,
+    required this.imageA,
+    required this.imageB,
   });
 
   factory Question.fromJson(Map<String, dynamic> json) {
@@ -22,6 +26,8 @@ class Question {
       answerA: json['answer_a'] ?? "",
       answerB: json['answer_b'] ?? "",
       image: json['image'] ?? "",
+      imageA: json['image_a'] ?? "",
+      imageB: json['image_b'] ?? "",
     );
   }
 }
