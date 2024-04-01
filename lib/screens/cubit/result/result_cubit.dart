@@ -38,8 +38,6 @@ class ResultCubit extends Cubit<ResultState> {
 
       List<Answer> newAnswer = dataAnswer;
 
-      print("result cubit");
-
       if (newAnswer[0].answer == true) {
         e++;
       }
@@ -99,16 +97,15 @@ class ResultCubit extends Cubit<ResultState> {
       aF = int.parse(newAnswer[20].answer) * f;
 
       res = aA + aB + aC + aD + aE + aF;
-      print(res / 15);
       var format = NumberFormat("0.00");
       scor = double.parse(format.format(res / 15));
 
       if (scor >= 0 && scor <= 38) {
-        categoryRes = "Overload";
+        categoryRes = "Under-Load";
       } else if (scor > 38 && scor <= 54.66) {
         categoryRes = "Optimal-Load";
       } else if (scor > 54.66 && scor <= 100) {
-        categoryRes = "Under-Load";
+        categoryRes = "Overload";
       } else {
         categoryRes = "Undifined";
       }
@@ -169,22 +166,12 @@ class ResultCubit extends Cubit<ResultState> {
         },
       );
 
-      print("response :" + response.body);
-
       if (response.statusCode >= 200 && response.statusCode < 300) {
         emit(LoadedResultState(
             resultData: Result(
                 scor: scor, category: categoryRes, desc: categoryDescRes)));
       } else {
         throw 'Failed get data : ${json.decode(response.body)['message']}';
-      }
-
-      print(dataUser.name);
-      print(dataUser.age);
-      print(dataUser.height);
-      print(dataUser.weight);
-      for (Answer answer in dataAnswer) {
-        print("Number: ${answer.number}, Answer: ${answer.answer}");
       }
     } catch (err) {
       emit(ErrorResultState(errorMessage: err.toString()));
