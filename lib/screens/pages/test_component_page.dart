@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:form_app/screens/widgets/option_item.dart';
 import 'package:form_app/screens/widgets/step_bar.dart';
 import 'package:form_app/themes/theme.dart';
 import 'package:syncfusion_flutter_gauges/gauges.dart';
