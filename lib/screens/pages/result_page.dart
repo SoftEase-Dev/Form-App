@@ -274,7 +274,7 @@ class _ResultPageState extends State<ResultPage> {
                                                       ),
                                                     ),
                                                     Text(
-                                                      'Overload',
+                                                      'Underload',
                                                       textAlign:
                                                           TextAlign.center,
                                                       style: Theme.of(context)
@@ -378,7 +378,7 @@ class _ResultPageState extends State<ResultPage> {
                                                       ),
                                                     ),
                                                     Text(
-                                                      'Underload',
+                                                      'Overload',
                                                       textAlign:
                                                           TextAlign.center,
                                                       style: Theme.of(context)
