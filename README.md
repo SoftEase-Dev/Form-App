@@ -1,6 +1,6 @@
 # Form App
 
-A new Flutter project.
+A new Flutter project. In this app you can measure your stress. Are overload? underload? or optimal load? You can find out in this project
 
 ## Getting Started
 
